@@ -1,0 +1,8 @@
+<div class="main-file" id="allFiles">
+    <input type="hidden" id="selected_folder"></input>
+    <ul>
+        <% for (node of folder_structure) { %>
+            <%- include('tree.ejs') %>
+        <% } %>
+    </ul>
+</div>

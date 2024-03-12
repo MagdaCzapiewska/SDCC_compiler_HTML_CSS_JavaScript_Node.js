@@ -1,0 +1,7 @@
+node_modules
+*.log
+.nyc_output
+test-results.xml
+coverage
+wiki
+compiler.db

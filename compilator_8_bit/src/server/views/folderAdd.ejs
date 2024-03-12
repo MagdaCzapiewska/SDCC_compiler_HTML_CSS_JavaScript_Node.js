@@ -1,0 +1,12 @@
+<form method="POST" class="form" action="/folder/<%= id %>/add-folder" id="add_folder_form">
+    <div class="form-control">
+        <label for="id_name">Name:</label>
+        <input type="text" name="name" maxlength="100" required="" id="id_name">
+    </div>
+    <div class="form-control">
+        <label for="id_description">Description:</label>
+        <textarea name="description" cols="40" rows="5" maxlength="1000" id="id_description"></textarea>
+    </div>
+    <button type="button" onclick="return submitAddFolder();">Create folder</button>
+</form>
+

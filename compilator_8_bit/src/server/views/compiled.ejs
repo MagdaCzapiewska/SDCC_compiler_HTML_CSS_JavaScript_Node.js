@@ -1,0 +1,28 @@
+<% if(asm_code) { %>
+    <input type="hidden" id="compiled_name" value=<%= asm_name %>>
+    <div id="compiled_code">
+        <% asm_code.forEach((line, index) => { %>
+            <% if (line.start && line.position === "before" && index + 1 > 1) { %></div><% } %>
+            <% if (line.start && line.position === "before") { %><div class="<%= line.start_class %>"><% } %>
+                <div class="code<% if (line.source_code_line > 0) { %> source-refer<% } %>"
+                    <% if (line.source_code_line > 0) { %>
+                        data-source-line=<%= line.source_code_line %>
+                    <% } %>
+                ><%= line.code %></div>
+            <% if (line.start && line.position === "after") { %></div><div class="<%= line.start_class %>"><% } %>
+        <% }); %>
+        </div>
+    </div>
+<% } %>
+
+<% if(error_code) { %>
+    <div id="compilation_error">
+        <% error_code.forEach((line, index) => { %>
+        <div class="code<% if (line.source_code_line > 0) { %> source-refer<% } %>"
+            <% if (line.source_code_line > 0) { %>
+                data-source-line=<%= line.source_code_line %>
+            <% } %>
+        ><%= line.line_content %></div>
+        <% }); %>
+    </div>
+<% } %>

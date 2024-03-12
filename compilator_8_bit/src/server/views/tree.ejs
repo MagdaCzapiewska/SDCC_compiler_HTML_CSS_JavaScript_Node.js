@@ -1,0 +1,14 @@
+<li>
+    <% if (node.is_file) { %>
+        <a href="" id="/file/<%= node.id %>" class="file"><%= node.name %>, <%= node.id %></a>
+    <% } else { %>
+        <span class="caret" id="folder_<%= node.id %>"><%= node.name %>, <%= node.id %></span>
+    <% } %>
+    <ul class="nested">
+        <% if (node.has_children) { %>
+            <% for (child of node.children) { %>
+                <%- include('tree.ejs', {node: child}) %>
+            <% } %>
+        <% } %>
+    </ul>
+</li>

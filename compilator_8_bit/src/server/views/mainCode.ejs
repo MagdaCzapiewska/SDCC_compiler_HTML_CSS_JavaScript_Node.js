@@ -1,0 +1,17 @@
+<div class="main-code" id="code">
+    <input type="hidden" id="selected_file" value="<%= file_id %>"></input>
+    <input type="hidden" id="section_to_remove"></input>
+    <% source_code.forEach((line, index) => { %>
+        <% if (line.start_line > 0) { %>
+            <div class="<%= line.class_name %>" id="start<%= line.start_line %>-end<%= line.end_line %>" title="<%= line.section_type %>, <%= line.section_status %>">
+        <% } %>
+        <div id= "source_line_<%= index + 1 %>" class="code"><span class="line-counter"><%= index + 1 %></span><%= line.line %></div>
+        <% if (line.end_div) { %>
+            </div>
+        <% } %>
+    <% }); %>
+</div>
+<div class="main-fragment" id="fragment">
+    <%- include('compiled.ejs'); %>
+</div>
+
